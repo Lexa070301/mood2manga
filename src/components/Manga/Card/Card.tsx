@@ -4,6 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Link from "next/link";
+import { LinkPreview } from "@/components/ui/link-preview";
+import { motion } from "framer-motion";
 
 export interface Manga {
   mal_id: number;
@@ -21,9 +23,23 @@ interface Props {
 }
 
 export const MangaCard: React.FC<Props> = ({ manga }) => {
+  const updateHiddenManga = (val: number[]) => {
+    localStorage.setItem("hiddenManga", JSON.stringify(val));
+  };
+
+  const hideManga = () => {
+    const hiddenManga = localStorage.getItem("hiddenManga");
+    if (hiddenManga) {
+      const hiddenMangaList = JSON.parse(hiddenManga);
+      hiddenMangaList.push(manga.mal_id);
+      updateHiddenManga(hiddenMangaList);
+    } else {
+      updateHiddenManga([manga.mal_id]);
+    }
+  };
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto w-[300px] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -49,16 +65,17 @@ export const MangaCard: React.FC<Props> = ({ manga }) => {
         <div className="flex justify-between items-center mt-20">
           <CardItem
             translateZ={20}
-            as={Link}
-            href="https://twitter.com/mannupaaji"
-            target="__blank"
+            as="button"
+            onClick={hideManga}
             className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
           >
             Hide
           </CardItem>
           <CardItem
             translateZ={20}
-            as="button"
+            as={Link}
+            href={manga.url}
+            target="__blank"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
           >
             Link
