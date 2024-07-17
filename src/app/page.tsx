@@ -1,11 +1,11 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import { ThreeDCardDemo } from "@/components/MangaCard/MangaCard";
+import Emotions from "@/components/Emotions/Emotions";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <ThreeDCardDemo />
+      <Emotions />
     </main>
   );
 }

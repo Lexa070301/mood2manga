@@ -1,0 +1,17 @@
+export const emotions: { emotion: string; genre: string }[] = [
+  { emotion: "Happy", genre: "Comedy" },
+  { emotion: "Sad", genre: "Drama" },
+  { emotion: "Angry", genre: "Action" },
+  { emotion: "Fearful", genre: "Horror" },
+  { emotion: "Surprised", genre: "Mystery" },
+  { emotion: "Disgusted", genre: "Psychological" },
+  { emotion: "Excited", genre: "Adventure" },
+  { emotion: "Nervous", genre: "Thriller" },
+  { emotion: "Proud", genre: "Sports" },
+  { emotion: "Ashamed", genre: "Tragedy" },
+  { emotion: "Lonely", genre: "Slice of Life" },
+  { emotion: "Confused", genre: "Supernatural" },
+  { emotion: "Hopeful", genre: "Fantasy" },
+  { emotion: "Frustrated", genre: "Mecha" },
+  { emotion: "Content", genre: "Romance" },
+];
