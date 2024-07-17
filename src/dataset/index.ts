@@ -4,7 +4,7 @@ export const emotions: { emotion: string; genre: string }[] = [
   { emotion: "Angry", genre: "Action" },
   { emotion: "Fearful", genre: "Horror" },
   { emotion: "Surprised", genre: "Mystery" },
-  { emotion: "Disgusted", genre: "Psychological" },
+  { emotion: "Anxious", genre: "Sci-Fi" },
   { emotion: "Excited", genre: "Adventure" },
   { emotion: "Nervous", genre: "Thriller" },
   { emotion: "Proud", genre: "Sports" },
