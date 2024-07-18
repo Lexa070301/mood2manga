@@ -66,7 +66,7 @@ export const MangaCard: React.FC<Props> = ({ manga, refreshMangaList }) => {
             {manga.date}
           </CardItem>
           <CardItem
-            as="p"
+            as="div"
             translateZ="60"
             className="text-neutral-500 text-sm max-w-sm dark:text-neutral-300"
           >

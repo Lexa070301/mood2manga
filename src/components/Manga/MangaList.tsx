@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import axios from "axios";
 
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 import { MangaCard } from "@/components/Manga/Card/Card";
 import { Manga } from "@/components/Manga/Card/Card";
-import { usePathname } from "next/navigation";
 import { emotions } from "@/dataset";
 
 interface JikanResponse {
@@ -100,63 +101,10 @@ const MangaList: React.FC = () => {
     }
   };
 
-  // const getRandomLetterByDate = () => {
-  //   // Get the current date
-  //   const today = new Date();
-  //   const year = today.getFullYear();
-  //   const month = today.getMonth(); // 0-11
-  //   const day = today.getDate(); // 1-31
-
-  //   // Create a string of alphabets
-  //   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  //   // Create a seed based on the current date
-  //   const seed = year * 10000 + (month + 1) * 100 + day;
-
-  //   // Simple seeded random number generator
-  //   function seededRandom(seed: number) {
-  //     const x = Math.sin(seed) * 10000;
-  //     return x - Math.floor(x);
-  //   }
-
-  //   // Use the seed to get a random index
-  //   const randomIndex = Math.floor(seededRandom(seed) * alphabet.length);
-
-  //   // Return a random letter
-  //   return alphabet[randomIndex];
-  // };
-
   return (
     <div className="flex items-center flex-col w-full">
-      <div className="flex items-center justify-between bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full sm:w-[500px] h-auto rounded-xl p-6 border">
-        <h1 className="text-md sm:text-xl font-bold text-neutral-600 dark:text-white">
-          Feeling{" "}
-          <span className="bg-gradient-to-r from-green-500 to-blue-700 text-white rounded-md ml-2 py-1 px-2">
-            {pathname.split("/")[1]}
-          </span>
-        </h1>
-        <Link
-          href="/"
-          className="flex items-center px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs sm:text-sm font-bold"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-4 mr-2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-            />
-          </svg>
-          Back
-        </Link>
-      </div>
-      <div className="min-h-screen pt-4 sm:pt-20">
+      <Header mood={pathname.split("/")[1]} />
+      <div className="py-4 sm:py-10">
         <div className="flex items-start justify-center gap-0 sm:gap-7">
           <button
             onClick={prevManga}
@@ -234,6 +182,7 @@ const MangaList: React.FC = () => {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
