@@ -62,6 +62,6 @@ If you have any questions, feel free to reach out:
 - [Alexey Perfilyev](mailto:perfilyev.dev@gmail.com)
 - [Linked In](https://www.linkedin.com/in/aleksei-perfilev-93a3a8264/)
 
-Check out the project on [Product Hunt](https://www.producthunt.com)!
+Check out the project on [Product Hunt](https://www.producthunt.com/posts/mood2manga)!
 
 Happy reading! 📚
